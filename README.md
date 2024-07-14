@@ -18,6 +18,7 @@ Main container and sec container
 fetch dayta for trailer video
 embedded with yt video
 autoplay and mute
+GPT Search
 
 
 
