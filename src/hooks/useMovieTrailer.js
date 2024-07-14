@@ -5,6 +5,7 @@ import { API_OPTIONS } from "../utils/constants";
 
 const useMovieTrailer=(movieId)=>{
     const dispatch=useDispatch();
+    const trailerVideo=useSelector((store)=>store.movies.trailerVideo);
     const getMovieVideos=async()=>{//make api dynamic
         const data =await fetch('https://api.themoviedb.org/3/movie/'+movieId+ '/videos?language=en-US',API_OPTIONS);
    const json=await data.json();
@@ -15,7 +16,7 @@ const useMovieTrailer=(movieId)=>{
     dispatch(addTrailerVideo(trailer));//putting the trailer into store and dispatchthe action
     };
     useEffect(()=>{
-        getMovieVideos();
+       if(!trailerVideo) getMovieVideos();
     },[]);
 }
 export default useMovieTrailer;
